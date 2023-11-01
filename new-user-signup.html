@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> New User Signup</title>
+    <style>
+        div{
+            text-align: center;
+            margin: 2px 500px;
+            box-shadow: 10px 10px 10px 10px rgb(63, 60, 60);
+            
+        }
+        h2{
+            text-align: center;
+        }
+        input{
+            border-radius: 5px;
+            padding: 10px;
+            height: 20px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            width:50%;
+            font-size: 20px;
+            outline: none;
+        }
+        
+    </style>
+</head>
+<body>
+    <h2> New User Signup </h2>
+    <div>
+    <form id="signup-form">    
+        <input type="text" name="fname()" id="firstname" placeholder="FirstName" required><br>
+        <span id="fErr"></span><br>
+
+        <input type="text" id="username" name="uname()" placeholder="Username" required><br>
+        <span id="uErr"></span><br>
+            
+        <input type="text" id="email" name="em()" placeholder="Email" required><br>
+        <span id="eErr"></span><br>
+       
+        <input type="text" id="password" name="pswd()" placeholder="Password" required><br>
+        <span id="pErr"></span><br>
+
+        <input type="text" id="telephone" name="tel()" placeholder="Telephone" required><br>
+        <span id="tErr"></span><br>
+
+        <input type="text" id="pancard" name="pd()" placeholder="Pancard" required><br>
+        <span id="pcErr"></span><br>
+    </div>
+    </form>
+    <script>
+        function fname(){
+            const firstname=document.getElementById("firstname").value;
+            const firstnameRegex=/^[a-z]{5,15}$/;
+
+
+            if(firstnameRegex.test(firstname)){
+                document.getElementById('firstname').style.border="5px solid green";
+                document.getElementById('fErr').style.display="none";
+            }else{
+                document.getElementById('fErr').innerHTML="First name should contain 5-15 characters";
+                document.getElementById('firstname').style.border="5px solid red";
+                document.getElementById('fErr').style.color="red";
+                document.getElementById('fErr').style.display="block";
+            }
+        }
+
+        function uname(){
+            const username=document.getElementById("username").value;
+            const usernameRegex=/^[A-Z]{5,12}$/;
+
+            if(usernameRegex.test(username)){
+                document.getElementById('username').style.border="5px solid green";
+                document.getElementById('uErr').style.display="none";
+            }else{
+                document.getElementById('uErr').innerHTML="username must be contain 5-12 characters";
+                document.getElementById('username').style.border="5px solid red";
+                document.getElementById('uErr').style.color="red";
+                document.getElementById('uErr').style.display="block";
+            }
+
+        }
+
+        function em(){
+            const email=document.getElementById("email").value;
+            const emailRegex=/[a-z 0-9]+@[a-z 0-9.]+$/;
+
+            if(emailRegex.test(email)){
+                document.getElementById('email').style.border="5px solid green";
+                document.getElementById('eErr').style.display="none";
+            }else{
+                document.getElementById('eErr').innerHTML="email must be a valid address,e.g.me@mydomain.com";
+                document.getElementById('email').style.border="5px solid red";
+                document.getElementById('eErr').style.color="red";
+                document.getElementById('eErr').style.display="block";
+            }
+        };
+
+        function pswd(){
+            const password=document.getElementById("password").value;
+            const passwordRegex=/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@#$%^&+=!*()_]).{8,}$/;
+
+            if(passwordRegex.test(password)){
+                document.getElementById('password').style.border="5px solid green";
+                document.getElementById('pErr').style.display="none";
+            }else{
+                document.getElementById('pErr').innerHTML="password must alphanumeric(@,_and-are also allowed)and be 8-20 characters";
+                document.getElementById('password').style.border="5px solid red";
+                document.getElementById('pErr').style.color="red";
+                document.getElementById('pErr').style.display="block";
+            }
+
+        };
+
+        function tel(){
+            const telephone=document.getElementById("telephone").value;
+            const telephoneRegex=/^[6-9]\d{9}$/;
+
+            if(telephoneRegex.test(telephone)){
+                document.getElementById('telephone').style.border="5px solid green";
+                document.getElementById('tErr').style.display="none";
+            }else{
+                document.getElementById('tErr').innerHTML="telephone must be a valid indian telephone number(10 digits)";
+                document.getElementById('telephone').style.border="5px solid red";
+                document.getElementById('tErr').style.color="red";
+                document.getElementById('tErr').style.display="block";
+            }
+
+        };
+
+        function pd(){
+            const pancard=document.getElementById("pancard").value;
+            const panRegex=/[A-Z]{5}[0-9]{4}[A-Z]$/;
+
+            if(panRegex.test(pancard)){
+                document.getElementById('pancard').style.border="5px solid green";
+                document.getElementById('pcErr').style.display="none";
+            }else{
+                document.getElementById('pcErr').innerHTML="must be valid pancard number";
+                document.getElementById('pancard').style.border="5px solid red";
+                document.getElementById('pcErr').style.color="red";
+                document.getElementById('pcErr').style.display="block";
+            }
+        };    
+    </script>
+</body>
+</html>

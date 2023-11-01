@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+    <style>
+        div{    
+            text-align: center;
+            box-shadow: 5px 3px 5px 3px rgb(148, 143, 143);
+            margin: 10% 40%;
+            font-size: large;
+        }
+        h2{
+            font-size: xx-large;
+            margin-bottom: 20px;
+        }
+       
+        #decreaseBtn{    
+            background-color: red;
+            border: 1px solid red;  
+            margin-bottom: 3px;    
+        }
+
+        #increaseBtn{   
+            background-color: green;
+            border: 1px solid green;      
+        }
+        #resetBtn{
+            background-color: rosybrown;
+            border: 1px solid rosybrown;
+        }
+    </style>
+</head>
+<body>
+    <div class="counter">
+        <h1>Counter</h1>
+        <h2 id="counter">0</h2> 
+           <button id="decreaseBtn">-</button>
+           <button id="resetBtn">Reset</button>
+           <button id="increaseBtn">+</button>
+            </div>
+            <script>
+                let count = 0;
+
+                  document.getElementById("decreaseBtn").onclick=function(){
+                    count--;
+                    document.getElementById("counter").innerHTML=count;
+                    if(count<0){
+                      document.getElementById("counter").style.color="red";
+                    }else if(count<0){
+                      document.getElementById("counter").style.color="green";
+                    }else{
+                      document.getElementById("counter").style.color="black";
+                    }
+                    
+                  };
+                    
+                  document.getElementById("resetBtn").onclick=function(){
+                    count=0;
+                    document.getElementById("counter").innerHTML=count;
+                    if(count==0){
+                      document.getElementById("counter").style.color="black";
+
+                    }
+                  };
+                  document.getElementById("increaseBtn").onclick=function(){
+                    count++;
+                    document.getElementById("counter").innerHTML=count;
+                    if(count>0){
+                      document.getElementById("counter").style.color="green";
+                    }else if(count<0){
+                      document.getElementById("counter").style.color="red";
+                    }else{
+                      document.getElementById("counter").style.color="black";
+                    }
+                  };
+            </script>
+</body>
+</html>

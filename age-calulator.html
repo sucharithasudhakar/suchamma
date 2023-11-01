@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Age Calculator</title>
+</head>
+<style>
+    .container {
+    width: 300px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid white;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 5px 3px 4px 2px rgb(148, 143, 143);
+    }
+    label {
+    display: block;
+    margin-top: 10px;
+    }
+    input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    }
+    button {
+    background-color: blue;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    }
+
+    #result {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+    }
+</style>
+<body>
+    <div class="container">
+        <h2>Age Calculator</h2>
+        <label for="birthdate">Enter your date of birth</label>
+        <input type="date" id="birthdate" required>
+        <button id="calculate-age">Calculate Age</button>
+        <p id="result"></p>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let calculateAgeButton=document.getElementById('calculate-age');
+            let birthdateInput=document.getElementById('birthdate');
+            let resultElement=document.getElementById('result');
+
+        calculateAgeButton.addEventListener('click', function() {
+            let birthdate=new Date(birthdateInput.value);
+            let today=new Date();
+            let age=today.getFullYear() - birthdate.getFullYear();
+
+        // Check if the birthdate has occurred this year
+            if (today.getMonth() < birthdate.getMonth() || (today.getMonth() === birthdate.getMonth() && today.getDate() < birthdate.getDate())) {
+               age--;
+            }
+
+        });
+
+        });
+        
+    </script>
+    
+</body>
+</html>
+         
